@@ -20,6 +20,7 @@ $ java ReactMicroBenchmark 100 10
 ```
 
 ## Perfomance Results
+Output from running ReactMicroBenchmark.  *With version 1.8.0_31 react rendering time is below 1ms after 1000 iterations.  With  versions 1.8.0_40 and later the Java HotSpot Performance Engine is not able to optimize beyond ~20 ms rendering time.*
 
 ### Running with Java 1.8.0_31
 ```
@@ -79,4 +80,32 @@ Run #500: 21.667297 ms
 Run #1000: 23.337641 ms
 ...
 Run #10000: 25.088656 ms
+```
+
+### Running with Java 1.8.0_60
+```
+$ export JAVA_HOME="`/usr/libexec/java_home -v '1.8.0_60'`"
+$ java -version
+java version "1.8.0_60"
+Java(TM) SE Runtime Environment (build 1.8.0_60-b27)
+Java HotSpot(TM) 64-Bit Server VM (build 25.60-b23, mixed mode)
+
+$ java ReactMicroBenchmark
+Run #1: 337.751617 ms
+...
+Run #10: 33.046045 ms
+...
+Run #40: 24.244118 ms
+...
+Run #81: 23.548716 ms
+...
+Run #100: 21.439647 ms
+...
+Run #200: 21.322487 ms
+...
+Run #500: 22.643768 ms
+...
+Run #1000: 25.085296 ms
+...
+Run #10000: 25.757224 ms
 ```
