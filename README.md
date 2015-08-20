@@ -20,9 +20,9 @@ $ java ReactMicroBenchmark 100 10
 ```
 
 ## Perfomance Results
-Output from running ReactMicroBenchmark.  *With version 1.8.0_31 react rendering time is below 1ms after 1000 iterations.  With  versions 1.8.0_40 and later the Java HotSpot Performance Engine is not able to optimize beyond ~20 ms rendering time.*
+Performance comparing Nashorn with node.js. Nashorn takes a little longer to warm-up but after 10000 iterations it matches node.js performance.
 
-### Running with Java 1.8.0_31
+### Java 8 - Nashorn
 ```
 $ export JAVA_HOME="`/usr/libexec/java_home -v '1.8.0_31'`"
 $ java -version
@@ -52,7 +52,33 @@ Run #1000: 0.890468 ms
 Run #10000: 0.507431 ms
 ```
 
-### Running with Java 1.8.0_40
+### Node.js - V8
+```
+$ node --version
+v0.12.7
+
+$ node ReactMicroBenchmark.js
+Run #1: 9.884367000000054 ms
+...
+Run #10: 0.8311479999999847 ms
+...
+Run #20: 0.6488820000000146 ms
+...
+Run #40: 0.5726009999999633 ms
+...
+Run #80: 0.536360000000002 ms
+...
+Run #100: 0.507251999999994 ms
+...
+Run #1000: 0.4652369999999948 ms
+...
+Run #10000: 0.4628829999999766 ms
+```
+
+### Newer release of Java 8
+With version 1.8.0_31 react rendering time is below 1ms after 1000 iterations.  With  versions 1.8.0_40 and later the Java HotSpot Performance Engine is not able to optimize beyond ~20 ms rendering time.
+
+#### Running with Java 1.8.0_40
 ```
 $ export JAVA_HOME="`/usr/libexec/java_home -v '1.8.0_40'`"
 $ java -version
@@ -82,7 +108,7 @@ Run #1000: 23.337641 ms
 Run #10000: 25.088656 ms
 ```
 
-### Running with Java 1.8.0_60
+#### Running with Java 1.8.0_60
 ```
 $ export JAVA_HOME="`/usr/libexec/java_home -v '1.8.0_60'`"
 $ java -version
