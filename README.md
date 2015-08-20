@@ -75,7 +75,7 @@ Run #1000: 0.4652369999999948 ms
 Run #10000: 0.4628829999999766 ms
 ```
 
-### Newer release of Java 8
+### Newer versions of Java 8
 With version 1.8.0_31 react rendering time is below 1ms after 1000 iterations.  With  versions 1.8.0_40 and later the Java HotSpot Performance Engine is not able to optimize beyond ~20 ms rendering time.
 
 #### Running with Java 1.8.0_40
