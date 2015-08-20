@@ -135,3 +135,5 @@ Run #1000: 25.085296 ms
 ...
 Run #10000: 25.757224 ms
 ```
+### Machine Info
+These tests were run using a MacBook Pro (Retina, 15-inch, Mid 2014) with 2.8 GHz Intel Core i7 processor and 16 GB 1600 MHz DDR3 of memory.
