@@ -1,5 +1,5 @@
-# nashorn-react-microbenchmark
-micro-benchmark of Java 8 nashorn - server-side rendering of a react component
+# java-vs-node-react-rendering-microbenchmark
+Server-side rendering of a simple react component - Java 8's nashorn vs node.js microbenchmark
 
 ## Compiling and Running
 Compiling ReactMicroBenchmark
@@ -74,9 +74,12 @@ Run #1000: 0.4652369999999948 ms
 ...
 Run #10000: 0.4628829999999766 ms
 ```
+### Machine Info
+These tests were run using a MacBook Pro (Retina, 15-inch, Mid 2014) with 2.8 GHz Intel Core i7 processor and 16 GB 1600 MHz DDR3 of memory.
 
-### Newer versions of Java 8
-With version 1.8.0_31 react rendering time is below 1ms after 1000 iterations.  With  versions 1.8.0_40 and later the Java HotSpot Performance Engine is not able to optimize beyond ~20 ms rendering time.
+### *Note: newer versions of Java 8*
+With version 1.8.0_31 react rendering time is below 1ms after 1000 iterations.  With  versions 1.8.0_40 and later the Java HotSpot Performance Engine is not able to optimize beyond ~20 ms rendering time.  *I've also done the same comparison using
+([jhm](http://openjdk.java.net/projects/code-tools/jmh)) tool: [nashorn-react-jmh-microbenchmark](https://github.com/maximenajim/nashorn-react-jmh-microbenchmark).*
 
 #### Running with Java 1.8.0_40
 ```
@@ -135,5 +138,3 @@ Run #1000: 25.085296 ms
 ...
 Run #10000: 25.757224 ms
 ```
-### Machine Info
-These tests were run using a MacBook Pro (Retina, 15-inch, Mid 2014) with 2.8 GHz Intel Core i7 processor and 16 GB 1600 MHz DDR3 of memory.
