@@ -1,5 +1,7 @@
-import jdk.nashorn.api.scripting.NashornScriptEngine;
+import jdk.nashorn.api.scripting.NashornScriptEngineFactory;
 
+import javax.script.Invocable;
+import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import java.io.InputStream;
@@ -17,7 +19,7 @@ public class ReactMicroBenchmark {
     public static void main(String[] args) {
         int NUM_RUNES = numOfRunes(args);
         int NUM_COMMENTS = numOfComments(args);
-        NashornScriptEngine nashornScriptEngine = setupNashornScriptEngine();
+        Invocable nashornScriptEngine = (Invocable) setupNashornScriptEngine();
         for (int i = 0; i < NUM_RUNES; ++i) {
             List<Comment> comments = generateComments(NUM_COMMENTS);
 
@@ -70,16 +72,17 @@ public class ReactMicroBenchmark {
         return comments;
     }
 
-    private static NashornScriptEngine setupNashornScriptEngine() throws RuntimeException {
-        NashornScriptEngine nashornScriptEngine = (NashornScriptEngine) new ScriptEngineManager().getEngineByName("nashorn");
+    private static ScriptEngine setupNashornScriptEngine() throws RuntimeException {
+        NashornScriptEngineFactory factory = new NashornScriptEngineFactory();
+        ScriptEngine engine = factory.getScriptEngine(new String[]{"--optimistic-types=true"});
         try {
-            nashornScriptEngine.eval(read("js/nashorn-polyfill.js"));
-            nashornScriptEngine.eval(read("js/react.js"));
-            nashornScriptEngine.eval(read("js/commentBox.js"));
+            engine.eval(read("js/nashorn-polyfill.js"));
+            engine.eval(read("js/react.js"));
+            engine.eval(read("js/commentBox.js"));
         } catch (ScriptException e) {
             throw new RuntimeException(e);
         }
-        return nashornScriptEngine;
+        return engine;
     }
 
     public static class Comment {
