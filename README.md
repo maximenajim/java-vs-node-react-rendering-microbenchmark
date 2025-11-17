@@ -74,6 +74,11 @@ Run #1000: 0.4652369999999948 ms
 ...
 Run #10000: 0.4628829999999766 ms
 ```
+
+### Running the renderServer test
+```
+$ node test/renderServer.test.js
+```
 ### Machine Info
 These tests were run using a MacBook Pro (Retina, 15-inch, Mid 2014) with 2.8 GHz Intel Core i7 processor and 16 GB 1600 MHz DDR3 of memory.
 
