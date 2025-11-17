@@ -19,7 +19,7 @@ Running ReactMicroBenchmark with specific number of executions and number of com
 $ java ReactMicroBenchmark 100 10
 ```
 
-## Perfomance Results
+## Performance Results
 Performance comparing Nashorn with node.js. Nashorn takes a little longer to warm-up but after 10000 iterations it matches node.js performance.
 
 ### Java 8 - Nashorn
