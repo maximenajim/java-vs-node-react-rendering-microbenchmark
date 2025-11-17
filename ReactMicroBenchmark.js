@@ -107,18 +107,24 @@ var renderServer = function (comments) {
     );
 };
 
-log = console.log.bind(console);
-timestamp = function() { return process.hrtime()[1] / 1e6; };
+module.exports = {
+    renderServer: renderServer
+};
 
-var comments = [];
-var NUM_COMMENTS = 10;
-for (var i = 0; i < NUM_COMMENTS; ++i) {
-    comments.push({author:"Name "+i, text:"This is comment #"+i+"."});
-}
-for (i = 0; i < 10000; ++i) {
-    var start, stop;
-    start = timestamp();
-    renderServer(comments);
-    stop = timestamp();
-    log('Run #' + (i + 1) + ':', (stop - start), 'ms');
+var log = console.log.bind(console);
+var timestamp = function() { return process.hrtime()[1] / 1e6; };
+
+if (require.main === module) {
+    var comments = [];
+    var NUM_COMMENTS = 10;
+    for (var i = 0; i < NUM_COMMENTS; ++i) {
+        comments.push({author:"Name "+i, text:"This is comment #"+i+"."});
+    }
+    for (i = 0; i < 10000; ++i) {
+        var start, stop;
+        start = timestamp();
+        renderServer(comments);
+        stop = timestamp();
+        log('Run #' + (i + 1) + ':', (stop - start), 'ms');
+    }
 }
