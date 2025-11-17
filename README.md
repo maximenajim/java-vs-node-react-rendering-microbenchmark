@@ -79,7 +79,7 @@ These tests were run using a MacBook Pro (Retina, 15-inch, Mid 2014) with 2.8 GH
 
 ### *Note: newer versions of Java 8*
 With version 1.8.0_31 react rendering time is below 1ms after 1000 iterations.  With  versions 1.8.0_40 and later the Java HotSpot Performance Engine is not able to optimize beyond ~20 ms rendering time.  *I've also done the same comparison using
-([jhm](http://openjdk.java.net/projects/code-tools/jmh)) tool: [nashorn-react-jmh-microbenchmark](https://github.com/maximenajim/nashorn-react-jmh-microbenchmark).*
+([jmh](http://openjdk.java.net/projects/code-tools/jmh)) tool: [nashorn-react-jmh-microbenchmark](https://github.com/maximenajim/nashorn-react-jmh-microbenchmark).* 
 
 *Java team is fixing the react.js performance regression:* https://bugs.openjdk.java.net/browse/JDK-8134403
 
